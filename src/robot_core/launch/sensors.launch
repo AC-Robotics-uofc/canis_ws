@@ -6,4 +6,11 @@
           respawn="true"/>
     <!--OR args="_port:=/dev/ttyACM1"-->
 
+    <node pkg="imu_filter_madgwick" type="imu_filter_node" name="imu_filter_madgwick" output="screen" respawn="false" >
+        <param name="use_mag" value="false" />
+        <param name="publish_tf" value="true" />
+        <param name="fixed_frame" value="normalized_base_link" />
+        <param name="use_magnetic_field_msg" value="false" />
+    </node>
+
 </launch>

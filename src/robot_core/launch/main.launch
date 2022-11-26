@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <launch>
-    <arg name="centerofmass_to_side_y_length" default="0.1"/>
-    <arg name="centerofmass_to_front_x_length" default="0.1"/>
-    <arg name="centerofmass_to_back_x_length" default="0.1"/>
+    <arg name="center_of_mass_to_side_y_length" default="0.1"/>
+    <arg name="center_of_mass_to_front_x_length" default="0.1"/>
+    <arg name="center_of_mass_to_back_x_length" default="0.1"/>
 
     <arg name="shoulder_length" default="0.055"/>
     <arg name="arm_length" default="0.105"/>
     <arg name="forearm_length" default="0.136"/>
 
+
     <include file="$(find robot_core)/launch/kinematics.launch">
             <param name="shoulder_length" value="$(arg shoulder_length)"/>
             <param name="arm_length" value="$(arg arm_length)"/>
             <param name="forearm_length" value="$(arg forearm_length)"/>
-    </inclcude>
+    </include>
 
     <include file="$(find robot_core)/launch/sensors.launch"/>
 </launch>

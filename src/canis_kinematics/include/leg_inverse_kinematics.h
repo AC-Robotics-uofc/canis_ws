@@ -19,7 +19,7 @@ class LegInverseKinematicsProcessor
 
         // Callback methods
         void Superior_Right_Leg_Pos_CB(const geometry_msgs::PointStamped::ConstPtr& Point);
-        void Superior_Left_Leg_Pos_CB(const geometry_msgs::PointStamped::ConstPtr&Point);
+        void Superior_Left_Leg_Pos_CB(const geometry_msgs::PointStamped::ConstPtr& Point);
         void Inferior_Right_Leg_Pos_CB(const geometry_msgs::PointStamped::ConstPtr& Point);
         void Inferior_Left_Leg_Pos_CB(const geometry_msgs::PointStamped::ConstPtr& Point);
 
@@ -29,7 +29,7 @@ class LegInverseKinematicsProcessor
          * Node handlers
          */
         ros::NodeHandle nh_;
-        //ros::NodeHandle nh_private_;
+        ros::NodeHandle nh_private_;
 
         /*
          * Robot Params (Can be passed as params)

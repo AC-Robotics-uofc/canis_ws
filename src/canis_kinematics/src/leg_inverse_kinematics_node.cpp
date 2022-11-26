@@ -5,10 +5,10 @@
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "leg_innverse_kinematics_node");
+    ros::init(argc, argv, "leg_inverse_kinematics_node");
 
-    ros::NodeHandle nh_("~");
-    LegInverseKinematicsProcessor IK = LegInverseKinematicsProcessor(nh_);
+    ros::NodeHandle nh_private("~");
+    LegInverseKinematicsProcessor IK = LegInverseKinematicsProcessor(nh_private);
     
     ros::spin();
     return 0;
