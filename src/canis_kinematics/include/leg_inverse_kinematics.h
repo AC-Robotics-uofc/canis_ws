@@ -29,7 +29,7 @@ class LegInverseKinematicsProcessor
          * Node handlers
          */
         ros::NodeHandle nh_;
-        ros::NodeHandle nh_private_;
+        //ros::NodeHandle nh_private_;
 
         /*
          * Robot Params (Can be passed as params)

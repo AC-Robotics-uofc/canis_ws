@@ -7,9 +7,8 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "leg_innverse_kinematics_node");
 
-    ros::NodeHandle nh_private("~");
-    //tf::TransformListener tf(ros::Duration(10));
-    LegInverseKinematicsProcessor IK = LegInverseKinematicsProcessor(nh_private);
+    ros::NodeHandle nh_("~");
+    LegInverseKinematicsProcessor IK = LegInverseKinematicsProcessor(nh_);
     
     ros::spin();
     return 0;
