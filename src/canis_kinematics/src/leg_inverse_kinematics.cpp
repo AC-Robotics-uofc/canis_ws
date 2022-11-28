@@ -13,6 +13,10 @@
 
 LegInverseKinematicsProcessor::LegInverseKinematicsProcessor(const ros::NodeHandle &nh_private_) {
     
+    nh_.param<double>("shoulder_length", shoulder_length, 0.055);  
+    nh_.param<double>("arm_length", arm_length, 0.105);  
+    nh_.param<double>("forearm_length", forearm_length, 0.136);  
+
     SuperiorRightSub = nh_.subscribe<geometry_msgs::PointStamped>("/desired_pos/superior/right", 1000, &LegInverseKinematicsProcessor::Superior_Right_Leg_Pos_CB, this);
     SuperiorLeftSub = nh_.subscribe<geometry_msgs::PointStamped>("/desired_pos/superior/left", 1000, &LegInverseKinematicsProcessor::Superior_Left_Leg_Pos_CB, this);
     InferiorRightSub = nh_.subscribe<geometry_msgs::PointStamped>("/desired_pos/inferior/right", 1000, &LegInverseKinematicsProcessor::Inferior_Right_Leg_Pos_CB, this);
@@ -34,11 +38,6 @@ LegInverseKinematicsProcessor::LegInverseKinematicsProcessor(const ros::NodeHand
     inferior_left_forearm_pub = nh_.advertise<std_msgs::Float64>("/actuation/leg/forearm/inferior/left", 1000);
 
     debug_pub = nh_.advertise<std_msgs::String>("/debug", 1000);
-
-    shoulder_length = 0.055;
-    arm_length = 0.105;
-    forearm_length = 0.136;
-
 }
 
 void LegInverseKinematicsProcessor::Superior_Right_Leg_Pos_CB(const geometry_msgs::PointStamped::ConstPtr& Point) {
@@ -116,7 +115,7 @@ void LegInverseKinematicsProcessor::Superior_Left_Leg_Pos_CB(const geometry_msgs
     superior_left_arm_pub.publish(superior_left_arm_msg);
     superior_left_forearm_pub.publish(superior_left_forearm_msg);
 
-    std::ostringstream stringstream;
+    /*std::ostringstream stringstream;
     stringstream << std::fixed << "x: " << superior_left_x << " y: " << superior_left_y << " z: " << superior_left_z << std::endl;
     stringstream << std::fixed << "dyz: " << dyz << std::endl;
     stringstream << std::fixed << "lyz: " << lyz << std::endl;
@@ -136,7 +135,7 @@ void LegInverseKinematicsProcessor::Superior_Left_Leg_Pos_CB(const geometry_msgs
 
 
     //debug_msg.data = "Hello";
-    //debug_pub.publish(debug_msg);
+    //debug_pub.publish(debug_msg);*/
 }
 
 void LegInverseKinematicsProcessor::Inferior_Right_Leg_Pos_CB(const geometry_msgs::PointStamped::ConstPtr& Point) {
@@ -175,7 +174,7 @@ void LegInverseKinematicsProcessor::Inferior_Right_Leg_Pos_CB(const geometry_msg
     inferior_right_arm_pub.publish(inferior_right_arm_msg);
     inferior_right_forearm_pub.publish(inferior_right_forearm_msg);
 
-    std::ostringstream stringstream;
+    /*std::ostringstream stringstream;
     stringstream << std::fixed << "x: " << inferior_right_x << " y: " << inferior_right_y << " z: " << inferior_right_z << std::endl;
     stringstream << std::fixed << "dyz: " << dyz << std::endl;
     stringstream << std::fixed << "lyz: " << lyz << std::endl;
@@ -190,7 +189,7 @@ void LegInverseKinematicsProcessor::Inferior_Right_Leg_Pos_CB(const geometry_msg
     stringstream << std::fixed << "shoulder: " << shoulder_abductor_pos << std::endl;
     std::string str = stringstream.str();
     debug_msg.data = str.c_str();
-    debug_pub.publish(debug_msg);
+    debug_pub.publish(debug_msg);*/
 
 }
 
@@ -230,7 +229,7 @@ void LegInverseKinematicsProcessor::Inferior_Left_Leg_Pos_CB(const geometry_msgs
     inferior_left_arm_pub.publish(inferior_left_arm_msg);
     inferior_left_forearm_pub.publish(inferior_left_forearm_msg);
 
-    std::ostringstream stringstream;
+    /*std::ostringstream stringstream;
     stringstream << std::fixed << "x: " << inferior_left_x << " y: " << inferior_left_y << " z: " << inferior_left_z << std::endl;
     stringstream << std::fixed << "dyz: " << dyz << std::endl;
     stringstream << std::fixed << "lyz: " << lyz << std::endl;
@@ -245,7 +244,7 @@ void LegInverseKinematicsProcessor::Inferior_Left_Leg_Pos_CB(const geometry_msgs
     stringstream << std::fixed << "shoulder: " << shoulder_abductor_pos << std::endl;
     std::string str = stringstream.str();
     debug_msg.data = str.c_str();
-    debug_pub.publish(debug_msg);
+    debug_pub.publish(debug_msg);*/
 }
 
 
